@@ -10,4 +10,4 @@ COPY . .
 
 CMD go mod tidy && \
   go build && \
-  ./antify --data-path=${DATA_PATH} --port=${PORT}
+  ./antify --data=${DATA_PATH} --port=${PORT}
