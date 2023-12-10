@@ -6,9 +6,9 @@ services:
     image: 'tmvdl/projects:antify'
     build: './src/app'
     volumes:
-      - './src/app:/go/src/github.com/brtmvdl/antify'
+      - './src/app:/app'
     ports:
-      - '555:555'
+      - '8080:80'
 
   github-release:
     image: 'github-release'
