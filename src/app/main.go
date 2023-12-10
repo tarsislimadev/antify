@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-import "flag"
+// import "flag"
 
 func main() {
-	data := *flag.String("data-path", "/data", "Path to save all data.")
+	data := "/data" // *flag.String("data", "/", "Path to save all data.")
 
-	port := *flag.String("port", "555", "Port expose HTTP project files.")
+	port := "555" // *flag.String("port", "555", "Port to expose HTTP project files.")
 
 	fmt.Printf("Antify; Data: %s; Port: %s; \n", data, port)
 }
