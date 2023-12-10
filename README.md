@@ -25,7 +25,7 @@ docker run -d -v $HOME/data:/data -p 555:555 tmvdl/projects:antify
 ## Running
 
 ```sh
-antify --data-path=/data --tcp-port=555 --http-port=80
+antify --data=/data --tcp-port=555 --http-port=80
 ```
 
 ## ENDPOINTS
