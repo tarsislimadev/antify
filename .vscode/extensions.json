@@ -1,6 +1,6 @@
 {
     "recommendations": [
         "ms-azuretools.vscode-docker",
-        "dbaeumer.vscode-eslint"
+        "ms-dotnettools.csdevkit"
     ]
 }
