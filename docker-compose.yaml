@@ -13,3 +13,11 @@ services:
   github-release:
     image: 'github-release'
     build: './src/app'
+
+  dotnet:
+    image: 'dotnet'
+    build: './src/dotnet'
+    volumes:
+      - './src/dotnet:/app'
+    ports:
+      - '8000:80'
