@@ -20,4 +20,4 @@ services:
     volumes:
       - './src/dotnet:/app'
     ports:
-      - '8000:80'
+      - '5049:8080'
