@@ -15,13 +15,19 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Docker build
-        run: docker-compose build github-release
+      - name: Create tool manifest
+        run: docker-compose run dotnet dotnet new tool-manifest --force # https://www.nuget.org/packages/dotnet-deb
 
-      - name: Export app
-        run: docker run -v $(pwd)/dist:/dist github-release cp -rfv /go/src/github.com/brtmvdl/antify/antify /dist/antify
+      - name: Running tool install
+        run: docker-compose run dotnet dotnet tool install --local dotnet-deb --version 0.1.226 # https://github.com/quamotion/dotnet-packaging
+
+      - name: Running deb install
+        run: docker-compose run dotnet dotnet deb install
+
+      - name: Create .deb file
+        run: docker-compose run dotnet dotnet deb
 
       - name: Create release
-        run: gh release create v$( date +%Y%m%d%H%M ) $(pwd)/dist/antify
+        run: gh release create v$( date +%Y%m%d%H%M ) $(pwd)/src/dotnet/bin/Debug/net8.0/*.deb
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
