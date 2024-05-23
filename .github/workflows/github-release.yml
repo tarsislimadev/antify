@@ -28,6 +28,6 @@ jobs:
         run: docker-compose run dotnet dotnet deb
 
       - name: Create release
-        run: gh release create v$( date +%Y%m%d%H%M ) ./src/dotnet/bin/Debug/net8.0/*.deb
+        run: gh release create v$( date +%Y%m%d%H%M ) ./src/dotnet/bin/Debug/net8.0/app.1.0.0.deb
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
