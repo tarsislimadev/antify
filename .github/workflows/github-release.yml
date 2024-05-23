@@ -25,7 +25,7 @@ jobs:
         run: docker-compose run dotnet dotnet deb install
 
       - name: Create .deb file
-        run: docker-compose run dotnet dotnet deb --runtime ubuntu.24.04-x64 --configuration Release --version-suffix "$( date +%Y ).$( date +%m ).$( date +%d )" --no-restore
+        run: docker-compose run dotnet dotnet deb --configuration Release --version-suffix "$( date +%Y ).$( date +%m ).$( date +%d )"
 
       - name: Create release
         run: gh release create v$( date +%Y%m%d%H%M ) ./src/dotnet/bin/Debug/net8.0/app.1.0.0.deb
