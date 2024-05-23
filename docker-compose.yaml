@@ -7,17 +7,3 @@ services:
     build: './src/app'
     volumes:
       - './src/app:/app'
-    ports:
-      - '8080:80'
-
-  github-release:
-    image: 'github-release'
-    build: './src/app'
-
-  dotnet:
-    image: 'dotnet'
-    build: './src/dotnet'
-    volumes:
-      - './src/dotnet:/app'
-    ports:
-      - '5049:8080'

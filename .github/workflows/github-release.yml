@@ -16,16 +16,16 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create tool manifest
-        run: docker-compose run dotnet dotnet new tool-manifest --force # https://www.nuget.org/packages/dotnet-deb
+        run: docker-compose run app dotnet new tool-manifest --force # https://www.nuget.org/packages/dotnet-deb
 
       - name: Running tool install
-        run: docker-compose run dotnet dotnet tool install --local dotnet-deb --version 0.1.226 # https://github.com/quamotion/dotnet-packaging
+        run: docker-compose run app dotnet tool install --local dotnet-deb --version 0.1.226 # https://github.com/quamotion/dotnet-packaging
 
       - name: Running deb install
-        run: docker-compose run dotnet dotnet deb install
+        run: docker-compose run app dotnet deb install
 
       - name: Create .deb file
-        run: docker-compose run dotnet dotnet deb --configuration Release --version-suffix "$( date +%Y ).$( date +%m ).$( date +%d )"
+        run: docker-compose run app dotnet deb --configuration Release --version-suffix "$( date +%Y ).$( date +%m ).$( date +%d )"
 
       - name: Create release
         run: gh release create v$( date +%Y%m%d%H%M ) ./src/dotnet/bin/Debug/net8.0/app.1.0.0.deb
