@@ -12,6 +12,6 @@ RUN dotnet deb install
 
 RUN dotnet tool restore
 
-RUN dotnet deb
+# RUN dotnet deb
 
 CMD dotnet run
