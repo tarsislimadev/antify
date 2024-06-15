@@ -7,3 +7,5 @@ services:
     build: './src/app'
     volumes:
       - './src/app:/app'
+    ports:
+      - '8080:80'
