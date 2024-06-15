@@ -1,8 +1,6 @@
 name: GitHub release
 
 on:
-  schedule:
-    - cron: '50 23 * * *'
   push:
     branches:
       - 'main'
@@ -15,19 +13,13 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
-      - name: Create tool manifest
-        run: docker-compose run app dotnet new tool-manifest --force # https://www.nuget.org/packages/dotnet-deb
+      - name: Build app
+        run: docker-compose build release
 
-      - name: Running tool install
-        run: docker-compose run app dotnet tool install --local dotnet-deb --version 0.1.226 # https://github.com/quamotion/dotnet-packaging
-
-      - name: Running deb install
-        run: docker-compose run app dotnet deb install
-
-      - name: Create .deb file
-        run: docker-compose run app dotnet deb --configuration Release
+      - name: Export app
+        run: docker run -v $(pwd)/dist:/dist release cp ./main /dist/antify -rfv 
 
       - name: Create release
-        run: gh release create v$( date +%Y%m%d%H%M ) $( find -name '*.deb' )
+        run: gh release create v$( date +%Y%m%d%H%M ) ./dist/antify
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
