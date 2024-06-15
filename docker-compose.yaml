@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   app:
     image: 'tmvdl/projects:antify'
     build: './src/app'
@@ -9,3 +8,8 @@ services:
       - './src/app:/app'
     ports:
       - '8080:80'
+
+  release:
+    image: release
+    build: './src'
+
