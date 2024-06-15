@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.18
 
 ENV PORT=80
 
