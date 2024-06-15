@@ -11,5 +11,7 @@ services:
 
   release:
     image: release
+    volumes:
+      - './src:/app'
     build: './src'
 
