@@ -1,7 +1,5 @@
 # ANTIFY
 
-[![github/actions/workflow/status](https://img.shields.io/github/actions/workflow/status/brtmvdl/antify/docker-push.yml)](https://img.shields.io/github/actions/workflow/status/brtmvdl/antify/docker-push.yml) [![github/license](https://img.shields.io/github/license/brtmvdl/antify)](https://img.shields.io/github/license/brtmvdl/antify) [![github/stars](https://img.shields.io/github/stars/brtmvdl/antify?style=social)](https://img.shields.io/github/stars/brtmvdl/antify?style=social)
-
 A fast open source database
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/antify)
