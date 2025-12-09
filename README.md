@@ -62,12 +62,12 @@ Set a permission to user
 
 ```sh
 # by access
-curl -sSL 'http://0.0.0.0/grantuser?token=0000&perm=all&username=usernamefiles/123'
+curl -sSL 'http://0.0.0.0/grantuser?token=0000&perm=all&username=username&name=files/123'
 
 $ grantuser --perm all --access user123@sub.domain.com --name /files/123
 
 # by user and password
-curl -sSL 'http://0.0.0.0/grantuser?token=0000&perm=all&username=username&host=sub.domain.com&username=usernamefiles/123'
+curl -sSL 'http://0.0.0.0/grantuser?token=0000&perm=all&username=username&host=sub.domain.com&username=username&name=files/123'
 
 $ grantuser --perm all --user user123 --host sub.domain.com --name /files/123
 ```
@@ -76,12 +76,12 @@ Revoke a permission from user
 
 ```sh
 # by access
-curl -sSL 'http://0.0.0.0/revokeuser?token=0000&perm=all&username=usernamefiles/123'
+curl -sSL 'http://0.0.0.0/revokeuser?token=0000&perm=all&username=username&name=files/123'
 
 $ revokeuser --perm all --access user123@sub.domain.com --name /files/123
 
 # by user and password
-curl -sSL 'http://0.0.0.0/revokeuser?token=0000&perm=all&username=username&host=sub.domain.com&username=usernamefiles/123'
+curl -sSL 'http://0.0.0.0/revokeuser?token=0000&perm=all&username=username&host=sub.domain.com&username=username&name=files/123'
 
 $ revokeuser --perm all --user user123 --host sub.domain.com --name /files/123
 ```
